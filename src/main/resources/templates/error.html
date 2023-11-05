@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <style class="fox_global_style">
+        div.fox_html_content {
+            line-height: 1.5;
+        }
+
+        /* 一些默认样式 */
+        blockquote {
+            margin-Top: 0px;
+            margin-Bottom: 0px;
+            margin-Left: 0.5em
+        }
+
+        ol,
+        ul {
+            margin-Top: 0px;
+            margin-Bottom: 0px;
+            list-style-position: inside;
+        }
+
+        p {
+            margin-Top: 0px;
+            margin-Bottom: 0px
+        }
+    </style>
+</head>
+
+<body>
+    <table class="body" width="100%" bgcolor="#f1f1f1"
+        style="color: rgb(0, 0, 0); font-size: 14px; line-height: 23.8px; font-family: &quot;lucida Grande&quot;, Verdana; text-align: center; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+        <tbody>
+            <tr>
+                <td class="body" align="center" valign="top" width="100%"
+                    style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; line-height: 20.4px; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                    <center>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="body" bgcolor="#f1f1f1"
+                            style="line-height: 20.4px; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                            <tbody>
+                                <tr>
+                                    <td align="center"
+                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="body"
+                                            style="line-height: 20.4px; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                                            <tbody>
+                                                <tr height="50">
+                                                    <td width="100%" height="50"
+                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px;">
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center"
+                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                        <table class="panel" border="0" cellpadding="0" cellspacing="0"
+                                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td valign="middle" align="center" class="panel"
+                                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                                        <div class="expand" style="max-height: 50px;">
+                                                                            <a th:href="${homeUrl}" rel="noopener"
+                                                                                target="_blank"
+                                                                                style="outline: none; cursor: pointer; color: rgb(8, 42, 78);"><img
+                                                                                    th:src="${image}" modifysize="115%"
+                                                                                    diffpixels="30px" norescale="true"
+                                                                                    style="max-width: inherit; vertical-align: middle; width: 57px; height: 57px;" /></a>
+                                                                            <br />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="body"
+                                            style="line-height: 20.4px; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center"
+                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                        <table width="560" class="panel-padded" border="0"
+                                                            cellpadding="0" cellspacing="0"
+                                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 560px;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width="560" align="center"
+                                                                        style="font-family: arial, helvetica, sans-serif; font-size: 30px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; font-weight: bold; color: rgb(49, 49, 49); line-height: 75px;">
+                                                                        <div style="line-height: 75px;"
+                                                                            th:text="${org}">
+
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="body" bgcolor="#f1f1f1"
+                            style="line-height: 20.4px; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                            <tbody>
+                                <tr>
+                                    <td align="center"
+                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                        <table width="600" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0"
+                                            class="body"
+                                            style="line-height: 20.4px; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px; background-color: rgb(255, 255, 255);">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center"
+                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                        <table width="560" class="panel-padded" border="0"
+                                                            cellpadding="0" cellspacing="0"
+                                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 560px;">
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <td width="560" align="center"
+                                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 24px;">
+                                                                        <div style="line-height: 24px;">
+                                                                            <br />
+                                                                        </div>
+                                                                        <div style="line-height: 24px;">
+                                                                            <br />
+                                                                            <span th:text="${title}" style="color: rgb(49, 49, 49); font-family: arial, helvetica, sans-serif; font-size: 35px; font-weight: 700;">
+                                                                                </span>
+                                                                            <br />
+                                                                            <br />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="body"
+                            style="line-height: 20.4px; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                            <tbody>
+                                <tr>
+                                    <td align="center"
+                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                        <table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+                                            class="panel"
+                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px; background-color: rgb(255, 255, 255);">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center"
+                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                        <table width="540" border="0" cellspacing="0" cellpadding="0"
+                                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: arial, helvetica, sans-serif; font-size: 14px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; text-transform: uppercase; color: rgb(178, 178, 178); line-height: 24px;">
+                                                                        <strong>通知详情:</strong>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr height="1">
+                                                                    <td width="100%" height="1"
+                                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px; background-color: rgb(226, 227, 228);">
+                                                                        &nbsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="body"
+                            style="line-height: 20.4px; text-align: center; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                            <tbody>
+                                <tr>
+                                    <td align="center"
+                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                        <table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+                                            class="panel"
+                                            style="text-align: center; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px; background-color: rgb(255, 255, 255);">
+                                            <tbody>
+                                                <tr height="15">
+                                                    <td width="100%" height="15"
+                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px;">
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center"
+                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                        <table width="540" border="0" cellspacing="0" cellpadding="0"
+                                                            style="text-align: center; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                                        <table align="left" border="0" cellpadding="0"
+                                                                            cellspacing="0"
+                                                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; ">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td align="center"
+                                                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                                                        <div
+                                                                                            style="font-family: Ariel, Helvetica, sans-serif; font-size: 16px; color: rgb(49, 49, 49); text-align: left; line-height: 24px;">
+                                                                                            <span
+                                                                                                style="font-weight: 700;"><br />
+                                                                                                <div th:text="${call}">
+                                                                                                    <br />
+                                                                                                </div>
+                                                                                                <div th:text="' '+${message}">
+                                                                                                    <br />
+                                                                                                </div>
+                                                                                                <span
+                                                                                                    style="font-weight: normal;">
+                                                                                                </span>
+                                                                                                <br />
+                                                                                                <span th:text="${alert}" style="font-weight: normal;"></span>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <table align="right" border="0" cellpadding="0"
+                                                                            cellspacing="0"
+                                                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td align="center"
+                                                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                                                        <div
+                                                                                            style="font-family: Ariel, Helvetica, sans-serif; font-size: 16px; color: rgb(49, 49, 49); text-align: left; line-height: 24px;">
+                                                                                            <br />
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr height="1" class="desktop-hide"
+                                                                                    style="height: 0px;">
+                                                                                    <td width="100%" height="1"
+                                                                                        class="desktop-hide"
+                                                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; height: 0px; line-height: 1px;">
+                                                                                        &nbsp;</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr height="15">
+                                                                    <td width="100%" height="15"
+                                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px;">
+                                                                        &nbsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="body"
+                            style="line-height: 20.4px; text-align: center; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                            <tbody>
+                                <tr>
+                                    <td align="center"
+                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                        <table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+                                            class="panel"
+                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px; background-color: rgb(255, 255, 255);">
+                                            <tbody>
+                                                <tr height="15">
+                                                    <td width="100%" height="15"
+                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px;">
+                                                        &nbsp;</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="body"
+                            style="line-height: 20.4px; text-align: center; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                            <tbody>
+                                <tr>
+                                    <td align="center"
+                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                        <table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+                                            class="panel"
+                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px; background-color: rgb(255, 255, 255);">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center"
+                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                        <table width="540" border="0" cellspacing="0" cellpadding="0"
+                                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                            <tbody>
+                                                                <tr height="1">
+                                                                    <td width="100%" height="1"
+                                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px; background-color: rgb(226, 227, 228);">
+                                                                        &nbsp;</td>
+                                                                </tr>
+                                                                <tr height="20">
+                                                                    <td width="100%" height="20"
+                                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px;">
+                                                                        &nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center"
+                                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                                        <div
+                                                                            style="font-family: Ariel, Helvetica, sans-serif; font-size: 14px; color: rgb(49, 49, 49); line-height: 26px; width: 540px;">
+
+                                                                        </div>
+                                                                        <div
+                                                                            style="font-family: Ariel, Helvetica, sans-serif; font-size: 14px; color: rgb(49, 49, 49); line-height: 26px; width: 540px;">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr height="30">
+                                                                    <td width="100%" height="30"
+                                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px;">
+                                                                        <br />
+                                                                        <br />
+                                                                        <div align="center" th:text="${end}"  style="font-family: Ariel, Helvetica, sans-serif; font-size: 14px; color: rgb(49, 49, 49); line-height: 26px; width: 540px;">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr height="30">
+                                                                    <td width="100%" height="30"
+                                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px;">
+                                                                        <br />
+                                                                        <br />
+                                                                        <div align="center" th:text="${des}"  style="font-family: Ariel, Helvetica, sans-serif; font-size: 14px; color: rgb(49, 49, 49); line-height: 26px; width: 540px;">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0"
+                            style="text-align: center; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                            <tbody>
+                                <tr>
+                                    <td align="center"
+                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                        <table width="600" class="panel" border="0" cellpadding="0" cellspacing="0"
+                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 600px;">
+                                            <tbody>
+                                                <tr height="15">
+                                                    <td width="100%" height="15"
+                                                        style="font-size: 1px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; line-height: 1px;">
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center"
+                                                        style="font-size: 12px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse;">
+                                                        <table width="560" class="panel" border="0" cellpadding="0"
+                                                            cellspacing="0"
+                                                            style="text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; min-width: 560px;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="center" class="panel-padded"
+                                                                        style="font-size: 10px; -webkit-font-smoothing: subpixel-antialiased; text-size-adjust: 100%; margin: 0px; padding: 0px; border-collapse: collapse; color: rgb(49, 49, 49);">
+                                                                        <p style="line-height: 20.4px; margin-right: 0px !important; margin-left: 0px !important;"
+                                                                            th:utext="${copyright}">
+                                                                        </p>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

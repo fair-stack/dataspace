@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cnic.dataspace.api.datax.admin.mapper.TaskMapper">
+
+    <select id="selectByPaging" resultType="cn.cnic.dataspace.api.datax.admin.dto.DataMappingTaskVO">
+        select "DatasourceImport" as task_type,
+        id,
+        data_mapping_id,
+        case handle_code when 500 then 0 when 0 then 1 when 200 then 2 end as status,
+        job_desc as task_desc,
+        trigger_time as create_date,
+        handle_time as finish_date,
+        handle_msg as log
+        from job_log
+        where space_id = #{spaceId}
+        <if test="dataMappingId != null">
+            and data_mapping_id = #{dataMappingId}
+        </if>
+
+        <if test="searchStatus != null  and searchStatus == 0">
+            and handle_code = 500
+        </if>
+        <if test="searchStatus != null  and searchStatus == 1">
+            and handle_code = 0
+        </if>
+        <if test="searchStatus != null  and searchStatus == 2">
+            and handle_code = 200
+        </if>
+        union
+        select "ExcelImport" as task_type,
+        id,
+        data_mapping_id,
+        status,
+        task_desc,
+        create_date,
+        finish_date,
+        log
+        from import_excel_task
+        where space_id = #{spaceId}
+        <if test="dataMappingId != null">
+            and data_mapping_id = #{dataMappingId}
+        </if>
+        <if test="searchStatus != null">
+            and status = #{searchStatus}
+        </if>
+        union
+        select "ExcelExport" as task_type,
+        id,
+        data_mapping_id,
+        status,
+        task_desc,
+        create_date,
+        finish_date,
+        log
+        from export_excel_task
+        where space_id = #{spaceId}
+        <if test="dataMappingId != null">
+            and data_mapping_id = #{dataMappingId}
+        </if>
+        <if test="searchStatus != null">
+            and status = #{searchStatus}
+        </if>
+        order by create_date desc
+    </select>
+
+    <select id="selectList" resultType="cn.cnic.dataspace.api.datax.admin.dto.DataMappingTaskVO">
+        select "DatasourceImport" as task_type,
+        id,
+        data_mapping_id,
+        case handle_code when 500 then 0 when 0 then 1 when 200 then 2 end as status,
+        job_desc as task_desc,
+        trigger_time as create_date,
+        handle_time as finish_date,
+        handle_msg as log
+        from job_log
+        where space_id = #{spaceId}
+        <if test="dataMappingId != null">
+            and data_mapping_id = #{dataMappingId}
+        </if>
+
+        <if test="searchStatus != null and  searchStatus == 0">
+            and handle_code = 500
+        </if>
+        <if test="searchStatus != null and  searchStatus == 1">
+            and handle_code = 0
+        </if>
+        <if test="searchStatus != null and searchStatus == 2">
+            and handle_code = 200
+        </if>
+        union
+        select "ExcelImport" as task_type,
+        id,
+        data_mapping_id,
+        status,
+        task_desc,
+        create_date,
+        finish_date,
+        log
+        from import_excel_task
+        where space_id = #{spaceId}
+        <if test="dataMappingId != null">
+            and data_mapping_id = #{dataMappingId}
+        </if>
+        <if test="searchStatus != null">
+            and status = #{searchStatus}
+        </if>
+        union
+        select "ExcelExport" as task_type,
+        id,
+        data_mapping_id,
+        status,
+        task_desc,
+        create_date,
+        finish_date,
+        log
+        from export_excel_task
+        where space_id = #{spaceId}
+        <if test="dataMappingId != null">
+            and data_mapping_id = #{dataMappingId}
+        </if>
+        <if test="searchStatus != null">
+            and status = #{searchStatus}
+        </if>
+        order by create_date desc
+    </select>
+</mapper>

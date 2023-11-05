@@ -1,0 +1,1 @@
+nohup java -jar -Xms2g -Xmx4g -Dport=5293 -DmongoHost=localhost  -DftpPort=21 -Dexecutor.port=9996 -DIMPORT_EXCEL_PATH=/data/temp/ -DDATA_PATH=/data/datax -DDB_HOST=localhost -DDB_PORT=3306 -DDB_DATABASE=datax_web3 -DDB_USERNAME=root  -DDB_PASSWORD=password -DSQL_ROOT_PATH=/data/dataspace/ dataspace-service-0.0.1-SNAPSHOT.jar >api.log 2>&1 &

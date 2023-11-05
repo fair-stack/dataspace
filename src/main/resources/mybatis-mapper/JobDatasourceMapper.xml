@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cnic.dataspace.api.datax.admin.mapper.JobDatasourceMapper">
+
+    <update id="update" parameterType="cn.cnic.dataspace.api.datax.admin.entity.JobDatasource">
+        UPDATE job_jdbc_datasource
+        <set>
+            <if test="datasourceName!=null">datasource_name = #{datasourceName},</if>
+            <if test="datasource!=null">datasource = #{datasource},</if>
+            <if test="datasourceGroup!=null">datasource_group = #{datasourceGroup},</if>
+            <if test="jdbcUsername!=null">jdbc_username = #{jdbcUsername},</if>
+            <if test="jdbcPassword!=null">jdbc_password = #{jdbcPassword},</if>
+            <if test="jdbcUrl!=null">jdbc_url = #{jdbcUrl},</if>
+            <if test="jdbcDriverClass!=null">jdbc_driver_class = #{jdbcDriverClass},</if>
+            <if test="status!=null">status = #{status},</if>
+            <if test="comments!=null">comments = #{comments},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <update id="incrementCitationNum">
+        update job_jdbc_datasource
+        set citation_num = citation_num + 1
+        where id = #{id}
+    </update>
+
+    <select id="selectHostDataSourceType" resultType="java.lang.String">
+        select datasource
+        from job_jdbc_datasource
+        where status = 1
+          and space_id = #{spaceId}
+        group by datasource
+        order by max(citation_num) desc limit 3
+    </select>
+
+    <select id="selectTopOneBySourceType" resultType="cn.cnic.dataspace.api.datax.admin.entity.JobDatasource">
+        select *
+        from job_jdbc_datasource
+        where status = 1
+          and space_id = #{spaceId}
+          and datasource = #{sourceType}
+        order by citation_num desc limit 1
+    </select>
+
+</mapper>

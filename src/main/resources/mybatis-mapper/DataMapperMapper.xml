@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cnic.dataspace.api.datax.admin.mapper.DataMappingMapper">
+
+    <select id="getByPrimaryKeyAndSpaceId" resultType="cn.cnic.dataspace.api.datax.admin.entity.DataMapping">
+        select (case when b.data_mapping_id is null then 0 else 1 end) as is_lock, a.*
+        from data_mapping a
+                 left join
+             data_mapping_lock b
+             on
+                 a.id = b.data_mapping_id
+        where id = #{id}
+          and space_id = #{spaceId}
+          and status = 1
+    </select>
+
+    <select id="getPagingBySpaceIdAndUserId" resultType="cn.cnic.dataspace.api.datax.admin.entity.DataMapping">
+        select (case when b.data_mapping_id is null then 0 else 1 end ) as is_lock,a.*
+        from data_mapping a left join data_mapping_lock b on a.id = b.data_mapping_id
+        where space_id = #{spaceId}
+        and status = 1
+        and is_public = 0
+        and create_by = #{userId}
+        <if test="name != null and name != ''">
+            and name like concat('%',#{name}, '%')
+        </if>
+        union all
+        select (case when b.data_mapping_id is null then 0 else 1 end ) as is_lock,a.*
+        from data_mapping a left join data_mapping_lock b on a.id = b.data_mapping_id
+        where space_id = #{spaceId}
+        and status = 1
+        and is_public = 1
+        <if test="name != null and name != ''">
+            and name like concat('%',#{name}, '%')
+        </if>
+        order by name asc
+    </select>
+
+    <select id="getListBySpaceIdAndUserId" resultType="cn.cnic.dataspace.api.datax.admin.entity.DataMapping">
+        select (case when b.data_mapping_id is null then 0 else 1 end ) as is_lock,a.*
+        from data_mapping a left join data_mapping_lock b on a.id = b.data_mapping_id
+        where space_id = #{spaceId}
+        and status = 1
+        and is_public = 0
+        and create_by = #{userId}
+        <if test="name != null and name != ''">
+            and name like concat('%',#{name}, '%')
+        </if>
+        union all
+        select (case when b.data_mapping_id is null then 0 else 1 end ) as is_lock,a.*
+        from data_mapping a left join data_mapping_lock b on a.id = b.data_mapping_id
+        where space_id = #{spaceId}
+        and status = 1
+        and is_public = 1
+        <if test="name != null and name != ''">
+            and name like concat('%',#{name}, '%')
+        </if>
+        order by name asc
+    </select>
+
+    <select id="selectListBySpaceIdAndName" resultType="cn.cnic.dataspace.api.datax.admin.entity.DataMapping">
+        select (case when b.data_mapping_id is null then 0 else 1 end ) as is_lock,a.*
+        from data_mapping a left join data_mapping_lock b on a.id = b.data_mapping_id
+        where space_id = #{spaceId}
+        and status = 1
+        <if test="name != null and name != ''">
+            and name like concat('%',#{name}, '%')
+        </if>
+        order by name asc
+    </select>
+
+    <select id="selectPagingBySpaceIdAndName" resultType="cn.cnic.dataspace.api.datax.admin.entity.DataMapping">
+        select (case when b.data_mapping_id is null then 0 else 1 end ) as is_lock,a.*
+        from data_mapping a left join data_mapping_lock b on a.id = b.data_mapping_id
+        where space_id = #{spaceId}
+        and status = 1
+        <if test="name != null and name != ''">
+            and name like concat('%',#{name}, '%')
+        </if>
+        order by name asc
+    </select>
+
+
+</mapper>

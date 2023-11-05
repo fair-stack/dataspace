@@ -1,0 +1,183 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      database: dataspace47
+      username: dataspace47
+      password: password
+
+  datasource:
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3340}/${DB_DATABASE:datax_web3}?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8
+    custom_url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}
+    default_db: ${DB_DATABASE:datax_web3}
+    sql_root_path: ${SQL_ROOT_PATH:/mnt/dataspace}
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 180000
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      max-lifetime: 1800000
+
+ftp:
+  ftpHost: ${acc.host}
+  transmitSt: 699
+  transmitEnd: 50301
+  port: ${ftpPort:21}
+  show: 21
+  timeOut: 43200000
+  bufferSize: 2048
+
+call:
+  webUrl: /
+  webLogin: /login
+  webRegister: /register?code=
+  successUrl: /validate-success
+  upPwdUrl: /reset-password
+  auditUrl: /approvalManage
+  resourceUrl: /dataPublish
+  spaceDetailUrl: /space/spaceId/details/spaceInfo
+  spaceUrl: /space
+  wechatBindingUrl: /login-weixin-bind
+  wechatConfUrl: /personalCenter?tab=3
+  spaceApplyUrl: /space/spaceId/details/spaceSetting?tab=4
+  applyUrl: /approvalManage
+  publicUrl: /dataPublish
+  shareSpaceUrl: /space-share?code=
+  shareFileUrl: /file-share?code=
+
+
+  emailActivation: /api/email.activation?code=
+  getFtp: /api/harvest/ftp
+  harCon: /api/harvest/con
+  callbackUrl: /api/audit.callback
+  resourceUpdateUrl: /api/resourceUpdate
+  centerHost: http://localhost:8082
+
+  getTokenUrl: /fair/entry
+
+  netCallbackUrl: /wangpan
+  netLoginSuccess: /NetDiskSuccess
+
+  umpWork: /login-kjy-perfect?username=
+  casLoginUrl: https://url
+  casLogoutUrl: http://url
+  authUrl: https://url
+  authParam: grant_type=authorization_code&code=
+  umtCallbackUrl: /callback
+
+  wechatCallbackUrl: /wechat/callback
+
+  escienceCallbackUrl: /escience/callback
+
+  fairman_market_url: http://url
+  fairman_dataSend_url: http://url
+
+acc:
+  host: host
+  port: 80
+
+swagger:
+  enable: true
+
+file:
+
+  parentDir: /data/data
+  import_excel_path: ${IMPORT_EXCEL_PATH:${file.parentDir}/temp}
+
+  rootDir: ${file.parentDir}/disk
+  documentDir: /Document/
+  documentImgDir: /Image/Document/
+  chunkFileDir: ugyuvgbhnouvghjbnk
+  monitor: true
+  timeInterval: 10
+  simText: [ txt,html,htm,asp,jsp,xml,json,properties,md,gitignore,java,py,c,cpp,sql,sh,bat,m,bas,prg,cmd ]
+  doument: [ "pdf","word","doc","docs","xls","xl","md" ]
+  web-dav-prefix: /webDAV
+  releaseStored: ${file.parentDir}/release
+  install_component_web: /package
+  install_component_source: ${file.releaseStored}/component
+  space_log_path: ${file.releaseStored}/space_log_data
+
+file-manager:
+  thumbnail:
+    width: 80
+  volumes:
+    - Node:
+
+      alias: files
+      path: ${file.rootDir}
+      isDefault: true
+      locale:
+      constraint:
+        locked: true
+        readable: false
+        writable: false
+
+data:
+  path: ${DATA_PATH:${file.parentDir}/datax}
+logging:
+  path: ${file.rootDir}/datax/applogs/executor/jobhandler
+  level:
+    root: info
+json:
+  path: ${data.path}/job/json
+python:
+  path: ${data.path}/bin/datax.py
+
+mybatis-plus:
+  mapper-locations: classpath*:/mybatis-mapper/*Mapper.xml
+  typeEnumsPackage: cn.cnic.dataspace.api.datax.admin.enums
+  global-config:
+    db-config:
+      id-type: AUTO
+      field-strategy: NOT_NULL
+      column-underline: true
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: 'null'
+    type-handlers-package: cn.cnic.dataspace.api.datax.admin.core.handler
+datax:
+  executor:
+    jsonpath: ${json.path}
+  pypath: ${python.path}
+  job:
+    accessToken:
+    admin:
+      addresses: http://127.0.0.1:${server.port:5293}
+    executor:
+      appname: datax-executor
+      ip:
+      port: ${executor.port:9996}
+      ### job log path
+      logpath: ${data.path}/applogs/executor/jobhandler
+      ### job log retention days
+      logretentiondays: 30
+      ### job, access token
+      accessToken:
+    #i18n (default empty as chinese, "en" as english)
+    i18n: zh_CN
+    ## triggerpool max size
+    triggerpool:
+      fast:
+        max: 200
+      slow:
+        max: 100
+      ### log retention days
+    logretentiondays: 30
+
+datasource:
+  aes:
+    key: xx
+#onlyoffice
+wopi:
+  url: ${ACC_HOST:localhost}:${ACC_PORT:5293}/api

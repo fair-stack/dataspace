@@ -1,0 +1,47 @@
+dataspace:
+  version: V1.2.5
+
+server:
+  port: 5293
+spring:
+  application:
+    name: dataspace-api-service
+  profiles:
+    active: dev
+  mvc:
+    servlet:
+      load-on-startup: 100
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+
+  servlet:
+    multipart:
+      max-file-size: 800MB
+      max-request-size: 800MB
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  #i18n
+  messages:
+    basename: i18n.messages
+    encoding: UTF-8
+    cache-duration: 3600
+
+app:
+  name: dataspace
+jwt:
+  header: Authorization
+  token_expires: 72000 # 20 h
+  secret: xxx
+  refresh_token_expires: 3600 # 1 h
+
+
+
+
+
+
