@@ -1,4 +1,4 @@
-# data-space
+# DataSpace
 
 This software encompasses capabilities such as data source adaptation, data ingestion, data submission, and access permission management. On data source adaptation, it integrates and encapsulates various data sources, including file systems, databases, and web resources, and graph databases and allow data stewards customize data sources. On data ingestion, it facilitates both online and offline access to multi-source heterogeneous scientific data. On access permission, it enables the creation of separate data spaces for different projects or organizations, supporting user role assignments for collaborative multi-user efforts.
 
